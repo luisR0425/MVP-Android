@@ -40,8 +40,8 @@ public class MyActivity extends AppCompatActivity {
 
     void fun(int x , int y ){
         //Log.d("Sum" , String.valueOf(x+y));
-        //txtSum.setText(String.valueOf(x+y));
-        Toast.makeText(this, String.valueOf(x+y), Toast.LENGTH_SHORT).show();
+        txtSum.setText(String.valueOf(x+y));
+        //Toast.makeText(this, String.valueOf(x+y), Toast.LENGTH_SHORT).show();
     }
 
 }
