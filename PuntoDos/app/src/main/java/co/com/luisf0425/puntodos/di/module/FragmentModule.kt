@@ -13,16 +13,16 @@ class FragmentModule {
 
     @Provides
     fun provideAboutPresenter(): DetailsContract.Presenter {
-        return DetailsPresenter()
+        return DetailsPresenter() //Return Presenter for Fragments
     }
 
     @Provides
     fun provideListPresenter(): ListEvents.Presenter {
-        return ListPresenter()
+        return ListPresenter() //Return presenter of ListEvents for Fragments
     }
 
     @Provides
     fun provideApiService(): ApiServiceInterface {
-        return ApiServiceInterface.create()
+        return ApiServiceInterface.create() //Return retrofitApi for presenter of fragments
     }
 }

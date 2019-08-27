@@ -37,10 +37,9 @@ class ListAdapter(private val context: Context, private val list: MutableList<Po
         holder.body!!.text = post.body
 
         holder.layout!!.setOnClickListener {
-            post.isRead = true
-            notifyDataSetChanged()
             listener.itemDetail(post)
         }
+
         if(list[position].isRead){
             holder.layout.setBackgroundColor(context.getColor(R.color.colorWhite))
         }
@@ -58,8 +57,8 @@ class ListAdapter(private val context: Context, private val list: MutableList<Po
     }
 
     fun removeAt(position: Int) {
-        list.removeAt(position)
-        notifyItemRemoved(position)
+        listener.itemRemoveClick(list[position])
+        list.remove(list[position])
     }
 
     fun removeAll(){
@@ -78,8 +77,8 @@ class ListAdapter(private val context: Context, private val list: MutableList<Po
     }
 
     interface onItemClickListener {
-        fun itemRemoveClick(post: Post)
-        fun itemDetail(post : Post)
+        fun itemRemoveClick(post: Post) //listener for remove a item
+        fun itemDetail(post : Post) //listener for open detail of a item
     }
 
     override fun getItemViewType(position: Int): Int {

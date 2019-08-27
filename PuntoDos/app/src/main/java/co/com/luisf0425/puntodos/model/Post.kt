@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 @Entity
 data class Post(
     val userId: Int,
-    @field:PrimaryKey
+    @field:PrimaryKey //primaryKey that help in delete and update
     val id: Int,
     val title: String,
     val body: String,

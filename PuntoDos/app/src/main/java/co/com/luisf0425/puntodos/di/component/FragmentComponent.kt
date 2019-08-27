@@ -8,8 +8,8 @@ import dagger.Component
 @Component(modules = [FragmentModule::class])
 interface FragmentComponent {
 
-    fun inject(detailsFragment: DetailsFragment)
+    fun inject(detailsFragment: DetailsFragment) //Inject FragmentModule to DetailsFragment
 
-    fun inject(listFragment: ListFragment)
+    fun inject(listFragment: ListFragment) //Inject FragmentModule to ListFragment
 
 }

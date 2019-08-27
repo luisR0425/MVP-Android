@@ -7,12 +7,13 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
+//Retrofit Api
 interface ApiServiceInterface {
 
     @GET("posts")
     fun getPostList(): Observable<List<Post>>
 
-    companion object Factory {
+    companion object Factory { //Create instance of retrofit
         fun create(): ApiServiceInterface {
             val retrofit = retrofit2.Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())

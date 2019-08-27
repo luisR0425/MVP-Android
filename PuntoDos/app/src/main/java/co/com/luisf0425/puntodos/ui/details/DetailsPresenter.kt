@@ -7,7 +7,6 @@ import java.util.concurrent.TimeUnit
 
 class DetailsPresenter: DetailsContract.Presenter {
 
-    //private val subscriptions = CompositeDisposable()
     private lateinit var view: DetailsContract.View
 
     override fun subscribe() {

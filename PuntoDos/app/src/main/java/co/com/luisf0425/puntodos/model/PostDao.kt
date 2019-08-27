@@ -1,9 +1,6 @@
 package co.com.luisf0425.puntodos.model
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 
 @Dao
 interface PostDao {
@@ -12,6 +9,9 @@ interface PostDao {
 
     @Update
     fun updatePost(vararg post: Post)
+
+    @Delete
+    fun deletePost(vararg post: Post)
 
     @Insert
     fun insertAll(vararg post: Post)

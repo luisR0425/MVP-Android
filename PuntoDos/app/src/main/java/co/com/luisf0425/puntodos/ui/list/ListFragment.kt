@@ -19,7 +19,6 @@ import kotlinx.android.synthetic.main.fragment_details.progressBar
 import kotlinx.android.synthetic.main.fragment_list.*
 import javax.inject.Inject
 import co.com.luisf0425.puntodos.databinding.FragmentListBindingImpl
-import co.com.luisf0425.puntodos.model.PostDao
 import co.com.luisf0425.puntodos.ui.main.MainActivity
 
 class ListFragment: Fragment(), ListEvents.View, ListAdapter.onItemClickListener {
@@ -85,12 +84,20 @@ class ListFragment: Fragment(), ListEvents.View, ListAdapter.onItemClickListener
     }
 
     override fun itemRemoveClick(post: Post) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val activity = activity as MainActivity
+        presenter.deleteItem(activity.postDatabase.postDao(), post)
     }
 
     override fun itemDetail(post: Post) {
         val activity = activity as MainActivity
         activity.presenter.optionDrawFragmentDetails(post)
+        post.isRead = true
+        presenter.updateItem(activity.postDatabase.postDao(), post)
+    }
+
+    override fun itemRemoveSuccess(post: Post){
+        val activity = activity as MainActivity
+        activity.presenter.loadListFragment()
     }
 
     private fun injectDependency() {

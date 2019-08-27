@@ -9,6 +9,6 @@ import javax.inject.Singleton
 @Component(modules = [ActivityModule::class])
 interface ActivityComponent {
 
-    fun inject(mainActivity: MainActivity)
+    fun inject(mainActivity: MainActivity) //Inject ActivityModule to MainActivity
 
 }

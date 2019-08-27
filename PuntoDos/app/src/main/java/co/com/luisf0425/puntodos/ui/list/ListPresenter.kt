@@ -4,6 +4,7 @@ import co.com.luisf0425.puntodos.api.ApiServiceInterface
 import co.com.luisf0425.puntodos.model.Post
 import co.com.luisf0425.puntodos.model.PostDao
 import io.reactivex.Observable
+import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
@@ -52,20 +53,30 @@ class ListPresenter: ListEvents.Presenter {
                 view.showErrorMessage(error.localizedMessage)
             })
         subscriptions.add(subscription)
-        /*var subscribe = api.getPostList().subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ list: List<Post>? ->
-                view.showProgress(false)
-                view.loadDataSuccess(list!!)
-            }, { error ->
-                view.showProgress(false)
-                view.showErrorMessage(error.localizedMessage)
-            })
-
-        subscriptions.add(subscribe)*/
     }
 
-    override fun deleteItem(item: Post) {
-        //api.deleteUser(item.id)
+    override fun deleteItem(postDao: PostDao, post: Post) {
+        Single.fromCallable {
+            postDao.deletePost(post) //Delete one item
+        }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                {
+                    view.itemRemoveSuccess(post)
+                }, {error ->//error message
+                }
+            )
+    }
+
+    override fun updateItem(postDao: PostDao, post: Post){
+        Single.fromCallable {
+            postDao.updatePost(post)//Update isRead param for the moment
+        }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+
+            )
     }
 }

@@ -27,7 +27,7 @@ class ActivityModule(private var activity: Activity) {
     @Singleton
     @Provides
     fun providesAppDatabase(): AppDatabase{
-        appDatabase = Room.databaseBuilder(activity, AppDatabase::class.java, "post").build()
+        appDatabase = Room.databaseBuilder(activity, AppDatabase::class.java, "post").build() //Instance of database as singleton
         return appDatabase
     }
 }
