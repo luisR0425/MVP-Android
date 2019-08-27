@@ -1,6 +1,7 @@
 package co.com.luisf0425.puntodos.ui.list
 
 import co.com.luisf0425.puntodos.model.Post
+import co.com.luisf0425.puntodos.model.PostDao
 import co.com.luisf0425.puntodos.ui.base.BaseContract
 
 class ListEvents {
@@ -12,7 +13,7 @@ class ListEvents {
     }
 
     interface Presenter: BaseContract.Presenter<View> {
-        fun loadData()
+        fun loadData(postDao: PostDao)
         fun deleteItem(item: Post)
     }
 }

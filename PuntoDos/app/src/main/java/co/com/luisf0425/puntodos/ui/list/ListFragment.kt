@@ -19,6 +19,7 @@ import kotlinx.android.synthetic.main.fragment_details.progressBar
 import kotlinx.android.synthetic.main.fragment_list.*
 import javax.inject.Inject
 import co.com.luisf0425.puntodos.databinding.FragmentListBindingImpl
+import co.com.luisf0425.puntodos.model.PostDao
 import co.com.luisf0425.puntodos.ui.main.MainActivity
 
 class ListFragment: Fragment(), ListEvents.View, ListAdapter.onItemClickListener {
@@ -101,7 +102,8 @@ class ListFragment: Fragment(), ListEvents.View, ListAdapter.onItemClickListener
     }
 
     private fun initView() {
-        presenter.loadData()
+        val activity = activity as MainActivity
+        presenter.loadData(activity.postDatabase.postDao())
     }
 
     companion object {

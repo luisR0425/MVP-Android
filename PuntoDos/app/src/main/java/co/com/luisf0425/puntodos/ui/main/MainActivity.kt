@@ -8,6 +8,7 @@ import co.com.luisf0425.puntodos.R
 import co.com.luisf0425.puntodos.di.component.DaggerActivityComponent
 import co.com.luisf0425.puntodos.di.module.ActivityModule
 import co.com.luisf0425.puntodos.model.Post
+import co.com.luisf0425.puntodos.model.database.AppDatabase
 import co.com.luisf0425.puntodos.ui.details.DetailsFragment
 import co.com.luisf0425.puntodos.ui.list.ListFragment
 import javax.inject.Inject
@@ -16,6 +17,9 @@ class MainActivity: AppCompatActivity(), MainContract.View {
 
     @Inject
     lateinit var presenter: MainContract.Presenter
+
+    @Inject
+    lateinit var postDatabase: AppDatabase
 
     lateinit var listFragment: ListFragment
 
@@ -34,8 +38,6 @@ class MainActivity: AppCompatActivity(), MainContract.View {
                 .setCustomAnimations(AnimType.FADE.getAnimPair().first, AnimType.FADE.getAnimPair().second)
                 .replace(R.id.frame, DetailsFragment(post).newInstance(post), DetailsFragment.TAG)
                 .commit()
-        } else {
-            // Maybe an animation like shake hello text
         }
     }
 
