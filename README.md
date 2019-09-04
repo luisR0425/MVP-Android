@@ -1,2 +1,2 @@
 # MVP android
-Ejemplo de modelo MVP para Android.
+Ejemplo de modelo MVP para Android usando Kotlin.
