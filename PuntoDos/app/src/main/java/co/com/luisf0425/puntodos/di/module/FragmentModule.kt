@@ -5,6 +5,8 @@ import co.com.luisf0425.puntodos.ui.details.DetailsContract
 import co.com.luisf0425.puntodos.ui.details.DetailsPresenter
 import co.com.luisf0425.puntodos.ui.list.ListEvents
 import co.com.luisf0425.puntodos.ui.list.ListPresenter
+import co.com.luisf0425.puntodos.ui.login.LoginContract
+import co.com.luisf0425.puntodos.ui.login.LoginPresenter
 import dagger.Module
 import dagger.Provides
 
@@ -19,6 +21,11 @@ class FragmentModule {
     @Provides
     fun provideListPresenter(): ListEvents.Presenter {
         return ListPresenter() //Return presenter of ListEvents for Fragments
+    }
+
+    @Provides
+    fun provideLoginPresenter(): LoginContract.Presenter{
+        return LoginPresenter() //Return presenter of LoginPresenter for Fragments
     }
 
     @Provides

@@ -1,14 +1,19 @@
 package co.com.luisf0425.puntodos.api
 
 import co.com.luisf0425.puntodos.model.Post
+import co.com.luisf0425.puntodos.model.User
 import co.com.luisf0425.puntodos.util.Constants
 import io.reactivex.Observable
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 //Retrofit Api
 interface ApiServiceInterface {
+
+    @GET("posts/{id}")
+    fun getUser(@Path("id") id: Int): Observable<User>
 
     @GET("posts")
     fun getPostList(): Observable<List<Post>>

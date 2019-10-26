@@ -55,15 +55,15 @@ class ListPresenter: ListEvents.Presenter {
         subscriptions.add(subscription)
     }
 
-    override fun deleteItem(postDao: PostDao, post: Post) {
+    override fun deleteItem(postDao: PostDao, item: Post) {
         Single.fromCallable {
-            postDao.deletePost(post) //Delete one item
+            postDao.deletePost(item) //Delete one item
         }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 {
-                    view.itemRemoveSuccess(post)
+                    view.itemRemoveSuccess(item)
                 }, {error ->//error message
                 }
             )

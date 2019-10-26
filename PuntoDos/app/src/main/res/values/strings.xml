@@ -4,4 +4,7 @@
     <string name="fragment_list_tag">List Fragment</string>
     <string name="delete">Delete</string>
     <string name="reload">RELOAD</string>
+    <string name="nom_usuario">Nombre de Usuario</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="enter_button">Entrar</string>
 </resources>
