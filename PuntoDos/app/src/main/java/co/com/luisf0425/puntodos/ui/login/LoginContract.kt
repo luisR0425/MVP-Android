@@ -9,6 +9,6 @@ class LoginContract {
     }
 
     interface Presenter: BaseContract.Presenter<View> {
-        fun eventLogin()
+        fun eventLogin(username: String?)
     }
 }

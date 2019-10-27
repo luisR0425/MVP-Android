@@ -18,7 +18,8 @@ class MainPresenter: MainContract.Presenter {
 
     override fun attach(view: MainContract.View) {
         this.view = view
-        view.showListFragment() // as default
+        //view.showListFragment() // as default
+        view.showLoginFragment()
     }
 
     override fun optionDrawFragmentDetails(post: Post) {
@@ -27,5 +28,9 @@ class MainPresenter: MainContract.Presenter {
 
     override fun loadListFragment() {
         view.showListFragment()
+    }
+
+    override fun loadLoginFragmen() {
+        view.showLoginFragment()
     }
 }

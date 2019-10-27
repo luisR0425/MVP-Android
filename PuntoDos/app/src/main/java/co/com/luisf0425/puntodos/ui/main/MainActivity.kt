@@ -11,6 +11,7 @@ import co.com.luisf0425.puntodos.model.Post
 import co.com.luisf0425.puntodos.model.database.AppDatabase
 import co.com.luisf0425.puntodos.ui.details.DetailsFragment
 import co.com.luisf0425.puntodos.ui.list.ListFragment
+import co.com.luisf0425.puntodos.ui.login.LoginFragment
 import javax.inject.Inject
 
 class MainActivity: AppCompatActivity(), MainContract.View {
@@ -22,6 +23,8 @@ class MainActivity: AppCompatActivity(), MainContract.View {
     lateinit var postDatabase: AppDatabase
 
     lateinit var listFragment: ListFragment
+
+    lateinit var loginFragment: LoginFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +50,16 @@ class MainActivity: AppCompatActivity(), MainContract.View {
             .disallowAddToBackStack()
             .setCustomAnimations(AnimType.SLIDE.getAnimPair().first, AnimType.SLIDE.getAnimPair().second)
             .replace(R.id.frame, listFragment, ListFragment.TAG)
+            .commit()
+    }
+
+
+    override fun showLoginFragment() {
+        loginFragment = LoginFragment().newInstance()
+        supportFragmentManager.beginTransaction()
+            .disallowAddToBackStack()
+            .setCustomAnimations(AnimType.SLIDE.getAnimPair().first, AnimType.SLIDE.getAnimPair().second)
+            .replace(R.id.frame, loginFragment, LoginFragment.TAG)
             .commit()
     }
 

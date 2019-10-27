@@ -8,10 +8,12 @@ class MainContract {
     interface View: BaseContract.View {
         fun showFragmentDetails(post: Post)
         fun showListFragment()
+        fun showLoginFragment()
     }
 
     interface Presenter: BaseContract.Presenter<View> {
         fun optionDrawFragmentDetails(post: Post)
         fun loadListFragment()
+        fun loadLoginFragmen()
     }
 }

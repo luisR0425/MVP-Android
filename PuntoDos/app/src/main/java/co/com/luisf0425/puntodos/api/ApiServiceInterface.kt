@@ -12,8 +12,8 @@ import retrofit2.http.Path
 //Retrofit Api
 interface ApiServiceInterface {
 
-    @GET("posts/{id}")
-    fun getUser(@Path("id") id: Int): Observable<User>
+    @GET("users")
+    fun getUser(): Observable<List<User>>
 
     @GET("posts")
     fun getPostList(): Observable<List<Post>>
