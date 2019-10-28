@@ -21,7 +21,7 @@ class LoginPresenter: LoginContract.Presenter {
     }
 
     override fun unsubscribe() {
-
+        subscriptions.clear()
     }
 
     override fun attach(view: LoginContract.View) {
@@ -33,9 +33,10 @@ class LoginPresenter: LoginContract.Presenter {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                    list: List<User>? ->{
-                        validateLogin(list, username)
-                    }
+                list: List<User>? ->{}
+                if(validateLogin(list, username)){
+                    view.initListFragment()
+                }
                 view.showProgress(false)
                 //view.loadDataSuccess(list!!)
             }, { error ->
@@ -49,7 +50,7 @@ class LoginPresenter: LoginContract.Presenter {
         var searched = false
         if (list != null) {
             for (user in list) {
-                if(user.name == username){
+                if(user.username == username){
                     searched = true
                     break
                 }

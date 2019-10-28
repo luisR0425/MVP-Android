@@ -6,6 +6,7 @@ class LoginContract {
 
     interface View: BaseContract.View {
         fun showProgress(show: Boolean)
+        fun initListFragment()
     }
 
     interface Presenter: BaseContract.Presenter<View> {

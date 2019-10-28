@@ -21,10 +21,10 @@ import javax.inject.Inject
 import co.com.luisf0425.puntodos.databinding.FragmentListBindingImpl
 import co.com.luisf0425.puntodos.ui.main.MainActivity
 
-class ListFragment: Fragment(), ListEvents.View, ListAdapter.onItemClickListener {
+class ListFragment: Fragment(), ListContract.View, ListAdapter.onItemClickListener {
 
     @Inject
-    lateinit var presenter: ListEvents.Presenter
+    lateinit var presenter: ListContract.Presenter
     private lateinit var binding: FragmentListBindingImpl
     lateinit var listAdapter: ListAdapter
 

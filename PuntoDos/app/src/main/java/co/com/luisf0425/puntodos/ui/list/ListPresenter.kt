@@ -10,11 +10,11 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
-class ListPresenter: ListEvents.Presenter {
+class ListPresenter: ListContract.Presenter {
 
     private val subscriptions = CompositeDisposable()
     private val api: ApiServiceInterface = ApiServiceInterface.create()
-    private lateinit var view: ListEvents.View
+    private lateinit var view: ListContract.View
     private lateinit var subscription: Disposable
 
     override fun subscribe() {
@@ -25,7 +25,7 @@ class ListPresenter: ListEvents.Presenter {
         subscriptions.clear()
     }
 
-    override fun attach(view: ListEvents.View) {
+    override fun attach(view: ListContract.View) {
         this.view = view
     }
 

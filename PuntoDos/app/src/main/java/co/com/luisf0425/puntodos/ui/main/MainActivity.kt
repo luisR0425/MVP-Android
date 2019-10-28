@@ -45,14 +45,20 @@ class MainActivity: AppCompatActivity(), MainContract.View {
     }
 
     override fun showListFragment() {
-        listFragment = ListFragment().newInstance()
+        /*listFragment = ListFragment().newInstance()
         supportFragmentManager.beginTransaction()
             .disallowAddToBackStack()
             .setCustomAnimations(AnimType.SLIDE.getAnimPair().first, AnimType.SLIDE.getAnimPair().second)
             .replace(R.id.frame, listFragment, ListFragment.TAG)
-            .commit()
+            .commit()*/
+        if (supportFragmentManager.findFragmentByTag(ListFragment.TAG) == null) {
+            supportFragmentManager.beginTransaction()
+                .addToBackStack(null)
+                .setCustomAnimations(AnimType.FADE.getAnimPair().first, AnimType.FADE.getAnimPair().second)
+                .replace(R.id.frame, ListFragment().newInstance(), ListFragment.TAG)
+                .commit()
+        }
     }
-
 
     override fun showLoginFragment() {
         loginFragment = LoginFragment().newInstance()

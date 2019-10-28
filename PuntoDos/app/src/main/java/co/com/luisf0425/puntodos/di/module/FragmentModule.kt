@@ -3,7 +3,7 @@ package co.com.luisf0425.puntodos.di.module
 import co.com.luisf0425.puntodos.api.ApiServiceInterface
 import co.com.luisf0425.puntodos.ui.details.DetailsContract
 import co.com.luisf0425.puntodos.ui.details.DetailsPresenter
-import co.com.luisf0425.puntodos.ui.list.ListEvents
+import co.com.luisf0425.puntodos.ui.list.ListContract
 import co.com.luisf0425.puntodos.ui.list.ListPresenter
 import co.com.luisf0425.puntodos.ui.login.LoginContract
 import co.com.luisf0425.puntodos.ui.login.LoginPresenter
@@ -19,8 +19,8 @@ class FragmentModule {
     }
 
     @Provides
-    fun provideListPresenter(): ListEvents.Presenter {
-        return ListPresenter() //Return presenter of ListEvents for Fragments
+    fun provideListPresenter(): ListContract.Presenter {
+        return ListPresenter() //Return presenter of ListContract for Fragments
     }
 
     @Provides

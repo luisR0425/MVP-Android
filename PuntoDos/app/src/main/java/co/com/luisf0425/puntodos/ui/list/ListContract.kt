@@ -4,7 +4,7 @@ import co.com.luisf0425.puntodos.model.Post
 import co.com.luisf0425.puntodos.model.PostDao
 import co.com.luisf0425.puntodos.ui.base.BaseContract
 
-class ListEvents {
+class ListContract {
 
     interface View: BaseContract.View {
         fun showProgress(show: Boolean)
